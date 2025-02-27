@@ -79,21 +79,21 @@ else
 fi
 
 # Check if the orginal file containing the tpm_pcr_0 hashes is present otherwise it will create one
-if [ -f /sec/tpm.bootguard_orig.txt ]  
-then
-     echo "tpm.bootguard_orig exist"
-else
-   echo "Extract tpm infos"
-   sudo tpmtool eventlog dump | grep -A 3 'PCR: 0' | sudo tee /sec/tpm.bootguard_orig.txt > /dev/null 2>&1
-fi
- # Check if the orginal file containing the tpm_pcr_8 hashes is present otherwise it will create one
-if [ -f /sec/tpm.kernel_orig.txt ]  
-then
-     echo "tpm.kernel_orig exist"
-else
-   echo "Extract tpm infos"
-   sudo tpmtool eventlog dump | grep -E -A 1 -B 2 "initrd /" | sudo tee /sec/tpm.kernel_orig.txt > /dev/null 2>&1
-fi
+#if [ -f /sec/tpm.bootguard_orig.txt ]  
+#then
+#     echo "tpm.bootguard_orig exist"
+#else
+#   echo "Extract tpm infos"
+#   sudo tpmtool eventlog dump | grep -A 3 'PCR: 0' | sudo tee /sec/tpm.bootguard_orig.txt > /dev/null 2>&1
+#fi
+# # Check if the orginal file containing the tpm_pcr_8 hashes is present otherwise it will create one
+#if [ -f /sec/tpm.kernel_orig.txt ]  
+#then
+#     echo "tpm.kernel_orig exist"
+#else
+#   echo "Extract tpm infos"
+#   sudo tpmtool eventlog dump | grep -E -A 1 -B 2 "initrd /" | sudo tee /sec/tpm.kernel_orig.txt > /dev/null 2>&1
+#fi
 #------------------------------------------Compare old to new---------------------------------------------------------------#
 echo "////////////////////////////////////////////////////////////////////////////"
 # Calculate sha512sum of the /boot and /efi partitions files and compare the new txt with the old one

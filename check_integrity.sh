@@ -2,8 +2,8 @@
 # check_integrity.sh - Checks for Evil Maid attack indicators
 # Run this script on every boot, ideally as a systemd service
 
-BASELINE_DIR="/var/lib/evil_maid_protection"
-LOG_FILE="/var/log/evil_maid_check.log"
+BASELINE_DIR="evil_maid_protection"
+LOG_FILE="evil_maid_check.log"
 ALERT_FLAG=0
 
 echo "[+] Checking Bootloader & Kernel Integrity..."
